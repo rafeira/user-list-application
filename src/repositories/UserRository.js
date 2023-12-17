@@ -13,5 +13,10 @@ class UserRepository {
     const data = user.toJson();
     return await this.axiosService.post("users", data);
   }
+
+  async find(id) {
+    const response = await this.axiosService.get(`users/${id}`);
+    return User.fromData(response.data);
+  }
 }
 export default UserRepository;

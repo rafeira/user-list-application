@@ -12,7 +12,7 @@ export default {
   methods: {
     async submitForm() {
       await this.userService.save(this.user)
-      .then((response) => console.log(response))
+      .then((response) => this.$router.push(`${response.data.id}`))
       .catch((error) => console.error(error));
     }
   }

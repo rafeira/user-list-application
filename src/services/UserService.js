@@ -10,5 +10,9 @@ class UserService {
   async save(user) {
     return await this.userRepository.save(user);
   }
+
+  async find(id){
+    return await this.userRepository.find(id);
+  }
 }
 export default UserService;
