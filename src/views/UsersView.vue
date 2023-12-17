@@ -1,10 +1,11 @@
 <script>
-import axios from 'axios';
+import UserService from '../services/UserService';
 
 export default {
   data() {
     return {
       users: [],
+      userService: new UserService()
     };
   },
   async mounted() {
@@ -12,9 +13,10 @@ export default {
   },
   methods: {
     async getUsers() {
-      await axios.get('http://localhost:8080/api/v1/users')
-        .then(response => {
-          this.users = response.data;
+      await this.userService.getAll('users')
+        .then(users => {
+          console.log(users)
+          this.users = users;
         })
         .catch(error => {
           console.error('Error fetching users:', error);
@@ -30,7 +32,7 @@ export default {
   <main>
     <ul>
       <li v-for="user in users" :key="user.id">
-        {{ user.firstName }} {{ user.lastName }}
+        {{ user.fullName() }}
       </li>
     </ul>
   </main>
