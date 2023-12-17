@@ -12,5 +12,13 @@ class User {
   fullName() {
     return `${this.first_name} ${this.last_name}`
   }
+
+  toJson() {
+    return {
+      id: this.id,
+      firstName: this.first_name,
+      lastName: this.last_name
+    }
+  }
 }
 export default User

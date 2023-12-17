@@ -8,5 +8,10 @@ class UserRepository {
     const response = await this.axiosService.get("users");
     return response.data.map((userData) => User.fromData(userData));
   }
+
+  async save(user) {
+    const data = user.toJson();
+    return await this.axiosService.post("users", data);
+  }
 }
 export default UserRepository;
