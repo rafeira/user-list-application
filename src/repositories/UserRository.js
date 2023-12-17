@@ -18,5 +18,9 @@ class UserRepository {
     const response = await this.axiosService.get(`users/${id}`);
     return User.fromData(response.data);
   }
+
+  async remove(id) {
+    return await this.axiosService.delete(`users/${id}`)
+  }
 }
 export default UserRepository;

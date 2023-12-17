@@ -12,5 +12,8 @@ class AxiosService {
   async post(path, data, config = {}) {
     return await this.instance.post(path, data, config);
   }
+  async delete(path, config = {}) {
+    return await this.instance.delete(path, config);
+  }
 }
 export default AxiosService;

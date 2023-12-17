@@ -15,14 +15,19 @@ export default {
     async getUsers() {
       await this.userService.getAll('users')
         .then(users => {
-          console.log(users)
           this.users = users;
         })
         .catch(error => {
           console.error('Error fetching users:', error);
         });
     },
-
+    async onRemoveUserPressed(userId) {
+      await this.userService.remove(userId)
+        .then((_) => location.reload())
+        .catch((error) => {
+          console.error(error)
+        });
+    }
 
   },
 };
@@ -30,10 +35,31 @@ export default {
 
 <template>
   <main>
-    <ul>
-      <li v-for="user in users" :key="user.id">
-        {{ user.fullName() }}
-      </li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="user in users" :key="user.id">
+          <td>
+            <router-link :to="{ name: 'show-user', params: { id: user.id } }">
+              {{ user.fullName() }}
+            </router-link>
+          </td>
+          <td>
+            <span>
+              <button @click="onRemoveUserPressed(user.id)">Remover</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </main>
 </template>

@@ -14,5 +14,8 @@ class UserService {
   async find(id){
     return await this.userRepository.find(id);
   }
+  async remove(id){
+    return await this.userRepository.remove(id);
+  }
 }
 export default UserService;
