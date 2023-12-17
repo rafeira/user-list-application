@@ -4,11 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div>ola mundo</div>
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Users</RouterLink>
-        <RouterLink to="/create-user">Create user</RouterLink>
+        <RouterLink to="/users/new">Create user</RouterLink>
       </nav>
     </div>
   </header>
