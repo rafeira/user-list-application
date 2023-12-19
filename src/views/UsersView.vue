@@ -23,11 +23,24 @@ export default {
     },
     async onRemoveUserPressed(userId) {
       await this.userService.remove(userId)
-        .then((_) => location.reload())
+        .then((_) => this.removeTableRow(userId))
         .catch((error) => {
           console.error(error)
         });
-    }
+    },
+    removeTableRow(userId) {
+      const element = document.querySelector(`#user-item-${userId}`);
+      element.remove();
+    },
+    async onEditUserPressed(userId) {
+      this.$router.push(`users/${userId}/edit`,
+        {
+          params: {
+            user: this.user
+          }
+        }
+      )
+    },
 
   },
 };
@@ -47,7 +60,7 @@ export default {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in users" :key="user.id">
+        <tr v-for="user in users" :key="user.id" :id="`user-item-${user.id}`">
           <td>
             <router-link :to="{ name: 'show-user', params: { id: user.id } }">
               {{ user.fullName() }}
