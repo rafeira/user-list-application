@@ -15,5 +15,8 @@ class AxiosService {
   async delete(path, config = {}) {
     return await this.instance.delete(path, config);
   }
+  async put(path, data, config = {}) {
+    return await this.instance.put(path, data, config)
+  }
 }
 export default AxiosService;

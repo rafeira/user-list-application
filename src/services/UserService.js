@@ -17,5 +17,8 @@ class UserService {
   async remove(id){
     return await this.userRepository.remove(id);
   }
+  async update(user){
+    return await this.userRepository.update(user);
+  }
 }
 export default UserService;

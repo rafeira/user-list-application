@@ -57,6 +57,9 @@ export default {
             <span>
               <button @click="onRemoveUserPressed(user.id)">Remover</button>
             </span>
+            <span>
+              <button @click="onEditUserPressed(user.id)">Edit</button>
+            </span>
           </td>
         </tr>
       </tbody>

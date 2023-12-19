@@ -22,5 +22,10 @@ class UserRepository {
   async remove(id) {
     return await this.axiosService.delete(`users/${id}`)
   }
+
+  async update(user) {
+    const data = user.toJson();
+    return await this.axiosService.put("users", data);
+  }
 }
 export default UserRepository;
