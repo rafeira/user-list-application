@@ -33,13 +33,7 @@ export default {
       element.remove();
     },
     async onEditUserPressed(userId) {
-      this.$router.push(`users/${userId}/edit`,
-        {
-          params: {
-            user: this.user
-          }
-        }
-      )
+      this.$router.push(`users/${userId}/edit`)
     },
 
   },
