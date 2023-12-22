@@ -62,7 +62,7 @@ export default {
           </td>
           <td>
             <span>
-              <button @click="onRemoveUserPressed(user.id)">Remover</button>
+              <button @click="onRemoveUserPressed(user.id)">Remove</button>
             </span>
             <span>
               <button @click="onEditUserPressed(user.id)">Edit</button>

@@ -22,7 +22,16 @@ export default {
           console.error('Error fetching user:', error);
         });
     },
-
+    async removeUser() {
+      await this.userService.remove(this.user.id)
+        .then((_) => this.$router.push({name: "users"}))
+        .catch((error) => {
+          console.error(error)
+        });
+    },
+    async onEditUserPressed(userId) {
+      this.$router.push({path: `users/${this.user.id}/edit`, name: 'edit-user'})
+    },
 
   },
 };
@@ -33,5 +42,8 @@ export default {
     <p>
       {{ user.fullName() }}
     </p>
+    <button @click="this.removeUser()">Remove</button>
+    <button @click="this.onEditUserPressed()">Edit</button>
+
   </main>
 </template>
