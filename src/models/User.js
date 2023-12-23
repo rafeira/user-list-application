@@ -1,5 +1,5 @@
 class User {
-  constructor(firstName = '', lastName = '', id) {
+  constructor(firstName = "", lastName = "", id) {
     this.id = id;
     this.first_name = firstName;
     this.last_name = lastName;
@@ -10,15 +10,15 @@ class User {
   }
 
   fullName() {
-    return `${this.first_name} ${this.last_name}`
+    return `${this.first_name} ${this.last_name}`;
   }
 
   toJson() {
     return {
       id: this.id,
       firstName: this.first_name,
-      lastName: this.last_name
-    }
+      lastName: this.last_name,
+    };
   }
 }
-export default User
+export default User;

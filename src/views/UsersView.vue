@@ -36,10 +36,10 @@ export default {
       element.remove();
     },
     async onEditUserPressed(userId) {
-      this.$router.push(`users/${userId}/edit`)
+      await this.$router.push(`users/${userId}/edit`)
     },
     async onShowUserPressed(userId) {
-      this.$router.push({name: 'show-user', params: {id: userId}})
+      await this.$router.push({name: 'show-user', params: {id: userId}})
     }
   },
 };
