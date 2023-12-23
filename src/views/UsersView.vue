@@ -66,13 +66,13 @@ export default {
             </td>
             <td id="user-table-actions">
               <span class="action">
-                <CustomButton title="Edit" @click="onEditUserPressed(user.id)" class="btn-sm"/>
+                <CustomButton title="Edit" @click-action="this.onEditUserPressed(user.id)" class="btn-sm"/>
               </span>
               <span class="action">
-                <CustomButton title="Details" @click="onShowUserPressed(user.id)" class="btn-info btn-sm"/>
+                <CustomButton title="Details" @click-action="this.onShowUserPressed(user.id)" class="btn-info btn-sm"/>
               </span>
               <span class="action">
-                <CustomButton title="Remove" @click="onRemoveUserPressed(user.id)" class="btn-danger btn-sm"/>
+                <CustomButton title="Remove" @click-action="this.onRemoveUserPressed(user.id)" class="btn-danger btn-sm"/>
               </span>
             </td>
           </tr>
