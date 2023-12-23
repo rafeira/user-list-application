@@ -39,17 +39,19 @@ export default {
 </script>
 
 <template>
-  <form @submit.prevent="submitForm">
-    <FormError :error="errors.first_name_presence"/>
-    <FormError :error="errors.first_name_length"/>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" v-model="user.first_name">
+  <main>
+    <form @submit.prevent="submitForm">
+      <FormError :error="errors.first_name_presence"/>
+      <FormError :error="errors.first_name_length"/>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" v-model="user.first_name">
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" v-model="user.last_name">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" v-model="user.last_name">
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">Submit</button>
+    </form>
+  </main>
 </template>
 <style>
 

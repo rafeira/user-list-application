@@ -55,7 +55,7 @@ export default {
 </script>
 
 <template>
-  <div class="about">
+  <main>
     <form @submit.prevent="submitForm">
       <FormError :error="errors.first_name_presence"/>
       <FormError :error="errors.first_name_length"/>
@@ -67,7 +67,7 @@ export default {
 
       <button type="submit">Submit</button>
     </form>
-  </div>
+  </main>
 </template>
 <style>
 
