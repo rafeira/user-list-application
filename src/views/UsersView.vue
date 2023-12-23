@@ -1,6 +1,6 @@
 <script>
 import UserService from '../services/UserService';
-
+import CustomButton from '../components/CustomButton.vue';
 export default {
   data() {
     return {
@@ -10,6 +10,9 @@ export default {
   },
   async mounted() {
     await this.getUsers();
+  },
+  components: {
+    CustomButton
   },
   methods: {
     async getUsers() {
@@ -35,41 +38,54 @@ export default {
     async onEditUserPressed(userId) {
       this.$router.push(`users/${userId}/edit`)
     },
-
+    async onShowUserPressed(userId) {
+      this.$router.push({name: 'show-user', params: {id: userId}})
+    }
   },
 };
 </script>
 
 <template>
   <main>
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Actions
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="user in users" :key="user.id" :id="`user-item-${user.id}`">
-          <td>
-            <router-link :to="{ name: 'show-user', params: { id: user.id } }">
+    <div id="user-table-container">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">
+              Name
+            </th>
+            <th scope="col">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row" v-for="user in users" :key="user.id" :id="`user-item-${user.id}`">
+            <td>
               {{ user.fullName() }}
-            </router-link>
-          </td>
-          <td>
-            <span>
-              <button @click="onRemoveUserPressed(user.id)">Remove</button>
-            </span>
-            <span>
-              <button @click="onEditUserPressed(user.id)">Edit</button>
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+            <td id="user-table-actions">
+              <span class="action">
+                <CustomButton title="Edit" @click="onEditUserPressed(user.id)" class="btn-sm"/>
+              </span>
+              <span class="action">
+                <CustomButton title="Details" @click="onShowUserPressed(user.id)" class="btn-info btn-sm"/>
+              </span>
+              <span class="action">
+                <CustomButton title="Remove" @click="onRemoveUserPressed(user.id)" class="btn-danger btn-sm"/>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 </template>
+<style>
+  #user-table-container #user-table-actions .action{
+    margin: 5px;
+  }
+  main #user-table-container {
+    margin: 100px 50px
+  }
+</style>
