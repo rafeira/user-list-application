@@ -1,6 +1,7 @@
 <script>
 import UserService from '../services/UserService';
 import CustomButton from '../components/CustomButton.vue';
+import ConfirmationModal from '../components/ConfirmationModal.vue'
 export default {
   data() {
     return {
@@ -12,7 +13,8 @@ export default {
     await this.getUsers();
   },
   components: {
-    CustomButton
+    CustomButton,
+    ConfirmationModal
   },
   methods: {
     async getUsers() {
@@ -72,7 +74,8 @@ export default {
                 <CustomButton title="Details" @click-action="this.onShowUserPressed(user.id)" class="btn-info btn-sm"/>
               </span>
               <span class="action">
-                <CustomButton title="Remove" @click-action="this.onRemoveUserPressed(user.id)" class="btn-danger btn-sm"/>
+                <CustomButton title="Remove" class="btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeConfirmationModal"/>
+                <ConfirmationModal @confirm-action="this.onRemoveUserPressed(user.id)" modal-id="removeConfirmationModal" confirmation-button-color="btn-danger"/>
               </span>
             </td>
           </tr>
