@@ -46,8 +46,8 @@ export default {
         <p>
           {{ user.fullName() }}
         </p>
-        <CustomButton @click="this.onEditUserPressed()" title="Edit"/>
-        <CustomButton title="Remove" class="btn-danger" data-bs-toggle="modal" data-bs-target="#removeConfirmationModal"/>
+        <CustomButton @click="this.onEditUserPressed()" :title="$t('edit')" />
+        <CustomButton :title="$t('remove')" class="btn-danger" data-bs-toggle="modal" data-bs-target="#removeConfirmationModal"/>
         <ConfirmationModal @confirm-action="this.removeUser()" modal-id="removeConfirmationModal" confirmation-button-color="btn-danger"/>
       </div>
     </div>

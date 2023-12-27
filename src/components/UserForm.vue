@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="this.submit">
     <div class="mb-3">
-      <label for="firstName" class="form-label">First Name:</label>
+      <label for="firstName" class="form-label">{{ $t('models.user.attributes.first_name') }}:</label>
       <input type="text" id="firstName" class="form-control" v-bind:class="{ 'is-invalid': Object.keys(this.errors).length > 0 }" v-model="user.first_name">
       <div class="invalid-feedback">
         <div class="input-error" v-if="errors.first_name_presence">{{ errors.first_name_presence }}</div>
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="mb-3">
-      <label for="lastName" class="form-label">Last Name:</label>
+      <label for="lastName" class="form-label">{{ $t('models.user.attributes.last_name') }}:</label>
       <input type="text" id="lastName" v-model="user.last_name" class="form-control" >
     </div>
 

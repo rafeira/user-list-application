@@ -4,8 +4,19 @@
   "details": "Detalhes",
   "edit": "Editar",
   "table": {
-    "user": {"name": "Nome",
-    "actions": "Ações"
-  }
+    "user": {
+      "name": "Nome",
+      "actions": "Ações"
+    }
+  },
+  "models": {
+    "user": {
+      "attributes": {
+        "first_name": "Primeiro nome",
+        "last_name": "Sobrenome"
+      },
+      "one": "Usuário",
+      "many": "Usuários"
+    }
   }
 }

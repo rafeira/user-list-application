@@ -8,5 +8,15 @@
       "name": "Name",
       "actions": "Actions"
     }
+  },
+  "models": {
+    "user": {
+      "attributes": {
+        "first_name": "First name",
+        "last_name": "Last name"
+      },
+      "one": "user",
+      "many": "users"
+    }
   }
 }
