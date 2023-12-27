@@ -13,7 +13,7 @@
       <input type="text" id="lastName" v-model="user.last_name" class="form-control" >
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">{{$t('submit')}}</button>
   </form>
 </template>
 
