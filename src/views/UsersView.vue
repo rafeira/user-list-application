@@ -54,10 +54,10 @@ export default {
         <thead>
           <tr>
             <th scope="col">
-              Name
+               {{ $t('table.user.name') }}
             </th>
             <th scope="col">
-              Actions
+              {{ $t('table.user.actions') }}
             </th>
           </tr>
         </thead>
@@ -68,13 +68,13 @@ export default {
             </td>
             <td id="user-table-actions">
               <span class="action">
-                <CustomButton title="Edit" @click-action="this.onEditUserPressed(user.id)" class="btn-sm"/>
+                <CustomButton :title="$t('edit')" @click-action="this.onEditUserPressed(user.id)" class="btn-sm"/>
               </span>
               <span class="action">
-                <CustomButton title="Details" @click-action="this.onShowUserPressed(user.id)" class="btn-info btn-sm"/>
+                <CustomButton :title="$t('details')" @click-action="this.onShowUserPressed(user.id)" class="btn-info btn-sm"/>
               </span>
               <span class="action">
-                <CustomButton title="Remove" class="btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeConfirmationModal"/>
+                <CustomButton :title="$t('remove')" class="btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeConfirmationModal"/>
                 <ConfirmationModal @confirm-action="this.onRemoveUserPressed(user.id)" modal-id="removeConfirmationModal" confirmation-button-color="btn-danger"/>
               </span>
             </td>

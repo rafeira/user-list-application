@@ -1,3 +1,11 @@
 {
-  "submit": "Enviar"
+  "submit": "Enviar",
+  "remove": "Remover",
+  "details": "Detalhes",
+  "edit": "Editar",
+  "table": {
+    "user": {"name": "Nome",
+    "actions": "Ações"
+  }
+  }
 }
