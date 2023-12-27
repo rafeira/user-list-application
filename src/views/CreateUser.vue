@@ -1,7 +1,6 @@
 <script>
 import User from '../models/User'
 import UserService from '../services/UserService';
-import FormError from '../components/forms/FormError.vue';
 export default {
   data() {
     return {
@@ -9,9 +8,6 @@ export default {
       errors: {},
       userService: new UserService()
     };
-  },
-  components: {
-    FormError
   },
   methods: {
     async submitForm() {
@@ -40,19 +36,28 @@ export default {
 
 <template>
   <main>
-    <form @submit.prevent="submitForm">
-      <FormError :error="errors.first_name_presence"/>
-      <FormError :error="errors.first_name_length"/>
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" v-model="user.first_name">
+    <div id="form-container">
+      <form @submit.prevent="submitForm">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name:</label>
+          <input type="text" id="firstName" class="form-control" v-bind:class="{ 'is-invalid': Object.keys(this.errors).length > 0 }" v-model="user.first_name">
+          <div class="invalid-feedback">
+            <p v-if="errors.first_name_presence">{{ errors.first_name_presence }}</p>
+            <p v-if="errors.first_name_length">{{ errors.first_name_length }}</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name:</label>
+          <input type="text" id="lastName" v-model="user.last_name" class="form-control" >
+        </div>
 
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" v-model="user.last_name">
-
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
   </main>
 </template>
-<style>
-
+<style scoped>
+  #form-container {
+    margin: 100px 50px
+  }
 </style>
