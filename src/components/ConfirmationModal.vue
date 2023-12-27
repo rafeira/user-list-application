@@ -10,7 +10,7 @@
           {{ contentMessage }}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
           <button type="button" @click.prevent="this.onConfirmButtonPressed()" :class="`btn btn-primary ${confirmationButtonColor}`" data-bs-dismiss="modal">{{ confirmationButtonTitle }}</button>
         </div>
       </div>
@@ -31,7 +31,7 @@
       modalId: String,
       confirmationButtonTitle: {
         type: String,
-        default: "Sim"
+        default: "Yes"
       },
       confirmationButtonColor: String
     },
