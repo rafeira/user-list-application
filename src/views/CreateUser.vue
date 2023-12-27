@@ -42,8 +42,8 @@ export default {
           <label for="firstName" class="form-label">First Name:</label>
           <input type="text" id="firstName" class="form-control" v-bind:class="{ 'is-invalid': Object.keys(this.errors).length > 0 }" v-model="user.first_name">
           <div class="invalid-feedback">
-            <p v-if="errors.first_name_presence">{{ errors.first_name_presence }}</p>
-            <p v-if="errors.first_name_length">{{ errors.first_name_length }}</p>
+            <div class="input-error" v-if="errors.first_name_presence">{{ errors.first_name_presence }}</div>
+            <div class="input-error" v-if="errors.first_name_length">{{ errors.first_name_length }}</div>
           </div>
         </div>
         <div class="mb-3">
@@ -59,5 +59,8 @@ export default {
 <style scoped>
   #form-container {
     margin: 100px 50px
+  }
+  #form-container form .input-error {
+    font-size: .6rem;
   }
 </style>
